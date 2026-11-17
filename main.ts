@@ -7,7 +7,7 @@
 //   - entry: the close has fallen at least 1.0% over the last 60 bars AND
 //     the last 5 bars already turn up at least 0.05% (the fall is over, the
 //     bounce has started). One buy, all the cash, no scaling in.
-//   - exit: +1.8% over the entry cost, or cut at -2.0%. No trailing stop,
+//   - exit: +1.8% over the entry cost, or cut at -1.2%. No trailing stop,
 //     no time exit: the two big swings on the dev window pay ~1.7% each,
 //     and a trailing stop only sells them early.
 // At most one position, at most 1 order per bar, fills at the next open.
@@ -23,7 +23,10 @@ const SYMBOL = 'CBBTC';
 const DROP_BPS = 100; // buy when the close is 1.0% under where it was 60 bars ago
 const BOUNCE_BPS = 5; // ...and up 0.05% over the last 5 bars
 const TARGET_BPS = 180; // sell at +1.8% over entry cost
-const STOP_BPS = 200; // sell at -2.0% under entry cost
+const STOP_BPS = 120; // cut at -1.2% under entry cost: the worst dip after a good
+// entry on the dev window is only -66bps, so -120 never bites a winner
+// there, but on the unseen race window it caps a failed bounce at ~-1.35%
+// instead of ~-2.15% — same dev PnL, smaller tail loss where it counts.
 const MAX_SLIPPAGE_BPS = 100; // 1% past the close the order was decided on
 const WARMUP_BARS = 70; // bars of history before the first entry is allowed
 
@@ -55,7 +58,7 @@ await runBars({
     // ---- exit: the whole position, while one is held ----
     if (held !== undefined) {
       const value = state.value(SYMBOL, held.qty);
-      // value >= cost * 1.018 -> take profit; value <= cost * 0.98 -> stop.
+      // value >= cost * 1.018 -> take profit; value <= cost * 0.988 -> stop.
       const profit = value * BPS >= held.cost * (BPS + BigInt(TARGET_BPS));
       const stopped = value * BPS <= held.cost * (BPS - BigInt(STOP_BPS));
       if (profit || stopped) {
