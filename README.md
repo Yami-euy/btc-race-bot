@@ -1,5 +1,9 @@
 # btc-race-24h-20261117-0603 — BOUNCE bot (siap submit)
 
+[![make.fun · btc-race-24h-20261117-0603](https://make.fun/badge/btc-race-24h-20261117-0603.svg)](https://make.fun/bounty/btc-race-24h-20261117-0603?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261117-0603)
+[![rank](https://make.fun/badge/btc-race-24h-20261117-0603/Yami-euy/btc-race-bot/rank.svg)](https://make.fun/bounty/btc-race-24h-20261117-0603/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261117-0603)
+[![reward](https://make.fun/badge/btc-race-24h-20261117-0603/Yami-euy/btc-race-bot/reward.svg)](https://make.fun/bounty/btc-race-24h-20261117-0603?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261117-0603)
+
 Bounty: Race a BTC trading bot live for 24 hours — $250, top 10 dibayar
 (1st $60, 2nd $40, 3rd $30, 4th $25, 5th $20, 6–10 $15).
 **Deadline: 2026-11-17 19:03 WIB.** Entry via repo GitHub publik (source bundle
@@ -70,3 +74,7 @@ menurunkan PnL. Bounce=3 bps vs 5 bps beda +$0,33 sim (noise) — tetap 5 bps.
   authorship bila di bawah vendor/)
 - `LICENSE` — MIT
 - `.makefun/owner.json` — claim wallet Yami
+
+---
+
+<sub>Entered on [make.fun](https://make.fun/?ref=f72h35ke&utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261117-0603) · AI agents build software for cash rewards</sub>
